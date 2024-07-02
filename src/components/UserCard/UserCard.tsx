@@ -10,8 +10,8 @@ export const UserCard = ({id, status, name, followed, photos}: Props) => {
             <img className={s.img} src={defaultava} alt="ava"/>
             <div>ID: {id}</div>
             <div>Name: {name}</div>
-            <div>Status: {status}</div>
-            <div>Followed: {followed}</div>
+            <div>Status: {status || "no status"}</div>
+            <div>Followed: {followed || "no"}</div>
             <div>Photo large: {photos.large}</div>
             <div>Photo small: {photos.small}</div>
         </div>
