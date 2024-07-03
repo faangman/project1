@@ -2,13 +2,20 @@ import {UserType} from "../../UsersReducer";
 import s from './usercard.module.css'
 import defaultava from '../../assets/images/defaultlogo.jpeg'
 import {Navigate} from "react-router-dom";
+import {useState} from "react";
 
 type Props = UserType
 
 export const UserCard = ({id, status, name, followed, photos}: Props) => {
 
+    const [click, setClick] = useState(false)
+
     const onClickHAndler = () => {
-        return <Navigate to={`/${id}`}/>
+        setClick(true)
+    }
+
+    if (click) {
+        return <Navigate to={`/cards/${id}`}/>
     }
 
     return (

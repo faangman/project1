@@ -12,7 +12,7 @@ export const API = {
     getUsers () {
         return axiosInstance.get('/users')
     },
-    getUserById (id: number) {
-        return axiosInstance.get('/users/' + id)
+    getUserById (id: string) {
+        return axiosInstance.get(`/profile/${id}`)
     }
 }

@@ -15,6 +15,11 @@ export const Cards = () => {
         API.getUsers().then(res => {
             dispatch(fetchUsersAC(res.data.items));
         })
+
+        return () => {
+            dispatch(fetchUsersAC([]))
+        }
+
     }, []);
 
 
@@ -22,6 +27,7 @@ export const Cards = () => {
         <div className={s.cardscontainer}>
             {users.map(user => {
                 return <UserCard
+                    key={user.id}
                     name={user.name}
                     id={user.id}
                     photos={user.photos}
