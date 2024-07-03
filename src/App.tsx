@@ -1,5 +1,6 @@
 import React from 'react';
-import {Cards} from "./components/Cards/Cards";
+import {Header} from "./components/Header/Header";
+import {Outlet} from "react-router-dom";
 
 
 
@@ -7,7 +8,8 @@ function App() {
 
   return (
     <div>
-        <Cards/>
+        <Header/>
+        <Outlet/>
     </div>
   );
 }

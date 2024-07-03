@@ -1,7 +1,10 @@
 .cardscontainer {
     display: flex;
     gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    align-content: center;
     height: 100vh;
 }

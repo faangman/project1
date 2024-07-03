@@ -10,6 +10,9 @@ const axiosInstance = axios.create({
 
 export const API = {
     getUsers () {
-        return axiosInstance.get('/users', {params: {count: 4, page: 1}})
+        return axiosInstance.get('/users')
+    },
+    getUserById (id: number) {
+        return axiosInstance.get('/users/' + id)
     }
 }
