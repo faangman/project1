@@ -13,12 +13,25 @@ import {useState} from "react";
 import {IconButton} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {SetIsLoggedInAC} from "../../AppReducer";
+import {API} from "../../api/api";
 
 export const Header = () => {
+
     const [open, setOpen] = useState(false)
+    const dispatch = useDispatch();
 
     const openHandler = () => {
         setOpen(state => !state);
+    }
+
+    const logutHandler = () => {
+        API.logout().then((res) => {
+            if (res.data.resultCode === 0) {
+                dispatch(SetIsLoggedInAC(false))
+            }
+        })
     }
 
     const DrawerList = (
@@ -53,7 +66,7 @@ export const Header = () => {
             >
                 <MenuIcon />
             </IconButton>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" onClick={logutHandler}>Logout</Button>
             <Drawer open={open} onClose={openHandler}>
                 {DrawerList}
             </Drawer>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import {Inputs} from "../components/Login/Login";
 
 const axiosInstance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0',
@@ -14,5 +15,25 @@ export const API = {
     },
     getUserById (id: string) {
         return axiosInstance.get(`/profile/${id}`)
+    },
+    login (data: Inputs) {
+        return axiosInstance.post<login>('/auth/login', data)
+    },
+    logout () {
+        return axiosInstance.delete<logout>('/auth/login')
     }
+}
+
+type login = {
+    resultCode: number
+    messages: String[],
+    data: {
+        userId: number
+    }
+}
+
+type logout = {
+    resultCode: number
+    messages: String[],
+    data: {}
 }
