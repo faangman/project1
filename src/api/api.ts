@@ -21,6 +21,9 @@ export const API = {
     },
     logout () {
         return axiosInstance.delete<logout>('/auth/login')
+    },
+    auth () {
+        return axiosInstance.get<auth>('/auth/me')
     }
 }
 
@@ -36,4 +39,14 @@ type logout = {
     resultCode: number
     messages: String[],
     data: {}
+}
+
+type auth = {
+    resultCode: number
+    messages: String[],
+    data: {
+        id: number,
+        email: string,
+        login: string
+    }
 }
