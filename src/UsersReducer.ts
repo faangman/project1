@@ -5,7 +5,6 @@ export const UsersReducer = (state: UserType[] = initialState, action: ActionTyp
     switch (action.type) {
         case 'FETCH_USERS':{
             return [
-                ...state,
                 ...action.users
             ]
         }
